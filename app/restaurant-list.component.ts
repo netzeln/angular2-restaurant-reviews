@@ -4,13 +4,14 @@ import {RestaurantDisplayComponent} from './restaurant-display.component';
 import {RestaurantDetailsComponent } from './restaurant-details.component';
 import {PricePipe} from './price.pipe';
 import {AddRestaurantComponent} from './add-restaurant.component';
+import {EditRestaurantComponent} from './edit-restaurant.component';
 
 @Component ({
   selector: 'restaurant-list',
   inputs: ['restaurantList'],
   outputs: ['onRestaurantSelect'],
   pipes: [PricePipe],
-  directives: [RestaurantDisplayComponent, RestaurantDetailsComponent, AddRestaurantComponent],
+  directives: [RestaurantDisplayComponent, RestaurantDetailsComponent, AddRestaurantComponent, EditRestaurantComponent],
   template: `
     <div class="col-md-6">
       <select (change)="onChangeExpense($event.target.value)">
@@ -23,10 +24,12 @@ import {AddRestaurantComponent} from './add-restaurant.component';
         </restaurant-display>
         <restaurant-details *ngIf="currentRestaurant === selectedRestaurant" [restaurant]="currentRestaurant">
         </restaurant-details>
+        <edit-restaurant *ngIf="currentRestaurant === selectedRestaurant" [restaurant]="currentRestaurant"></edit-restaurant>
       </div>
     </div>
     <div class="col-md-6">
       <add-restaurant (newRestaurant)="addRestaurant($event)"></add-restaurant>
+    </div>
   `
 })
 
@@ -50,4 +53,5 @@ export class RestaurantListComponent {
       new Restaurant(restaurantDetails)
     );
   }
+  editRestaurant
 }
