@@ -3,13 +3,14 @@ import {Restaurant} from './restaurant.model';
 import {RestaurantDisplayComponent} from './restaurant-display.component';
 import {RestaurantDetailsComponent } from './restaurant-details.component';
 import {PricePipe} from './price.pipe';
+import {AddRestaurantComponent} from './add-restaurant.component';
 
 @Component ({
   selector: 'restaurant-list',
   inputs: ['restaurantList'],
   outputs: ['onRestaurantSelect'],
   pipes: [PricePipe],
-  directives: [RestaurantDisplayComponent, RestaurantDetailsComponent],
+  directives: [RestaurantDisplayComponent, RestaurantDetailsComponent, AddRestaurantComponent],
   template: `
     <div class="col-md-6">
       <select (change)="onChangeExpense($event.target.value)">
@@ -24,11 +25,13 @@ import {PricePipe} from './price.pipe';
         </restaurant-details>
       </div>
     </div>
+    <div class="col-md-6">
+      <add-restaurant (newRestaurant)="addRestaurant($event)"></add-restaurant>
   `
 })
 
 export class RestaurantListComponent {
-  public restaurantsList: Restaurant[];
+  public restaurantList: Restaurant[];
   public onRestaurantSelect: EventEmitter<Restaurant>;
   public selectedRestaurant: Restaurant;
   public filterExpense: string = "all";
@@ -41,5 +44,10 @@ export class RestaurantListComponent {
   }
   onChangeExpense(filterPrice){
     this.filterExpense = filterPrice;
+  }
+  addRestaurant(restaurantDetails: string[]): void {
+    this.restaurantList.push(
+      new Restaurant(restaurantDetails)
+    );
   }
 }
