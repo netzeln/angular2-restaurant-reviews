@@ -7,8 +7,8 @@ import {Restaurant} from './restaurant.model';
   template: `
     <h4>Fine {{restaurant.specialty}} Cuisine</h4>
     <h4>{{restaurant.address}}</h4>
+    <h4>Average Cost: {{restaurant.expense}}</h4>
   `
-
 })
 export class RestaurantDetailsComponent {
   public restaurant : Restaurant;
