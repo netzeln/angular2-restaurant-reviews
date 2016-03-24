@@ -5,7 +5,7 @@ import {Restaurant} from './restaurant.model';
   selector: 'edit-restaurant',
   inputs: ['restaurant'],
   template:`
-  <h3>Edit Restaurant</h3>
+  <h4>Edit Restaurant</h4>
     <label>Edit Restaurant Name:</label>
     <input [(ngModel)]="restaurant.name"/><br>
     <label>Edit Restaurant Cuisine:</label>
@@ -16,6 +16,7 @@ import {Restaurant} from './restaurant.model';
       <option value="French">French</option>
       <option value="American">American</option>
       <option value="Indian">Indian</option>
+      <option value="German">German</option>
       <option value="Other">Other</option>
     </select><br>
     <label>Edit Restaurant Address:</label>

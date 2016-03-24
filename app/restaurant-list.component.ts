@@ -14,6 +14,7 @@ import {EditRestaurantComponent} from './edit-restaurant.component';
   directives: [RestaurantDisplayComponent, RestaurantDetailsComponent, AddRestaurantComponent, EditRestaurantComponent],
   template: `
     <div class="col-md-6">
+      <label>Filter Restaurants by cost:</label>
       <select (change)="onChangeExpense($event.target.value)">
         <option value="all">$-$$$$$</option>
         <option value="cheap">$$$ or Less</option>

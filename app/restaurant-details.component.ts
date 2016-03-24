@@ -5,9 +5,9 @@ import {Restaurant} from './restaurant.model';
   selector: 'restaurant-details',
   inputs: ['restaurant'],
   template: `
-    <h4>Fine {{restaurant.specialty}} Cuisine</h4>
-    <h4>{{restaurant.address}}</h4>
-    <h4>Average Cost: {{restaurant.expense}}</h4>
+    <h3>Fine {{restaurant.specialty}} Cuisine</h3>
+    <h3>{{restaurant.address}}</h3>
+    <h3>Average Cost: {{restaurant.expense}}</h3>
   `
 })
 export class RestaurantDetailsComponent {
